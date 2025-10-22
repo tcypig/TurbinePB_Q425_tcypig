@@ -33,6 +33,6 @@ Each call to the increment instruction increases the counter by 1.
    stores: { count: u64 }
 
 
-## ⚙️ How to Run
+## How to Run
 - Build the program: anchor build
 - Run tests: anchor test
