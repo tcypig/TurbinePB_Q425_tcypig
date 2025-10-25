@@ -1,4 +1,4 @@
-# Token Mint Project (Week 1 – Solana Devnet)
+# Token Mint Project
 
 ## Goal
 Mint a custom SPL Token on Solana Devnet using TypeScript.
