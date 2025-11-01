@@ -1,0 +1,46 @@
+Taker wallet
+
+taker.json
+pubkey: ePpdrtCK28WuAvz1H5akU3AWMe7kLB64Vc62E2AJbBM
+
+
+Mint B
+Address:  Cj6fXj9r9yZidsTn5kdiw3VqsJPtb2Z5QpTeqnFgkzik
+Program: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+Mint authority: Co5RGd3K6CqdPp7WvWUw3VEngCtu8Pk9Qmgz7cReSBDp
+
+maker: mintB ATA
+Creating account 7Y5rXDenoYqkceW3gMmnkMZHifxmVCfiH2hfZj3YQyZS
+
+taker: mintB ATA
+Creating account r7qNiXFfd1vznQrHNCAciJcYtyHRNqiqmC3cLH7hoab
+
+
+
+Mint A
+Address: 89brBpJYJ4sRTx9GUCnNMyvNbE2vFX6z69Lmkd2kJ7hA
+
+maker: mintA ATA 
+6EQ6diuQh7wh4kHB6gawHjQEbvwaaxkSX5ji5pCELJqS
+
+
+Project
+Program Id: EXBqujt2pjtx1rdTMDJS7VK15TKRB5Ru99hHRR5Zfm2d
+Signature: 5nGRZT4GZR9DqJhkWZEx4i4wuqwpuUFCwDC2qbbSbFekJs8XPxN4rtTPLWv9eELrD6LM78cT4t19mVZMhqeW2x6N
+Idl account created: 6oXqz8hv75ep3mNKrVkU2XE2U2ZTTMFzuvNUdxWRjkS1
+
+
+escrow PDA: GQjr4tnd1hLA52FzXtLd8ou5Sdhyhge2QSkcFn6HJVqn
+bump: 253
+vault ATA (A): Bv3niDzkbiWUEwmLT1QsTKMQpzfVuJ8PjzS9rzfGbYW1
+
+
+maker_ata_a -> escrow
+Transaction signature: 4CMeG7wkcBuYFW1pQGYrzmgFHh6UX1GGYg5NuoAMev5pWd9wRuJ9UHp6M8T22pnVw928gf9cbsA9FvT1qpdUhmMe
+
+take
+taker_ata_b -> maker_ata_b (mint b)
+escrow -> taker_ata_a (mint a)
+close
+
+Transaction signature: 4LU52RiXiNQstQ4RFEe6EXrwbmzkC2svh1izJXo6JenCCEutWwn2JxRiwaHe2mJX8Hi869hxDryQD4J1PzSfthhY
