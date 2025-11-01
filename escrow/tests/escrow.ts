@@ -187,7 +187,7 @@ describe("escrow", () => {
         escrow: escrowPda,
         vault,
         tokenProgram: TOKEN_PROGRAM_ID,
-        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID, // 需要为 init_if_needed
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
         systemProgram: SystemProgram.programId,
       })
       .signers([taker]) 
