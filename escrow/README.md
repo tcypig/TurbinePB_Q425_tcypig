@@ -39,7 +39,7 @@ A **Taker** can then pay the exact Token B amount to automatically receive Token
 
 ---
 
-## 🧩 Escrow & Vault Details
+## Escrow & Vault Details
 
 | Item | Address / Value |
 |------|------------------|
@@ -49,7 +49,7 @@ A **Taker** can then pay the exact Token B amount to automatically receive Token
 
 ---
 
-## 🔁 Transaction Flow
+## Transaction Flow
 
 ### 1. Maker Initializes Escrow  
 **maker_ata_a → escrow (deposit Token A)**  
