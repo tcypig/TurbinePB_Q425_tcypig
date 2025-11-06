@@ -1,0 +1,10 @@
+{
+  "name": "NFT - Alice",
+  "symbol": "CORE",
+  "description": "My first NFT on Solana Devnet using Metaplex Core.",
+  "image": "https://nftcalendar.io/storage/uploads/events/2022/4/CWX00avqwn90xvbCNdkzoO399NJK0jCFF9qyfSvk.webp",
+  "attributes": [
+    { "trait_type": "Version", "value": "1" },
+    { "trait_type": "Type", "value": "CoreNFT" }
+  ]
+}

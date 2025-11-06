@@ -1,0 +1,15 @@
+
+# Deploy
+
+# Signature: 2cXAV5qFfUwk9PNYx4EqqzqAxoxq3GntjESM6NamPtBZDZ8suANELSHKZBs9JSDYsPg7zAj46c1MH3BcpE5LPqiZ
+# Waiting for program HUBjpQsy6x6ydWFq1fatHek6ktKW49uP55RdZcgzR6Ed to be confirmed...
+# Idl account created: 8pxWfrsV21dvZgcbAjkrJoPv5enRLVjPWimvC5Y3PKGu
+
+# mint_asset
+
+# ✅ Transaction signature: 4BGvdkBvd3gstbxMY9Eb7MyDtLZ3L3iKXk9pj4v95ZVTREFME8GiuySxqTQtSPUerUWcJCXSTtMF6mpCT8vjW2fy
+# 🪙 Asset public key: Fx8QzeQBT2DQsM2zMb2Ur63LQNjaiax9VgB7ZVHhVUSZ
+
+
+# transfer
+# ✅ Transfer Tx: 39dF4uKnteR2o5y3MJ3dQoBh1ysxXNXD9UZpH58yX3YXmP7HHaFJcgeCKFULtBfD8TevNfH5kg3FXZNhEtcdcydp
