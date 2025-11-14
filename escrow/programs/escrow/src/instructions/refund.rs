@@ -9,7 +9,7 @@ use anchor_spl::{
 use crate::state::Escrow;
 
 #[derive(Accounts)]
-#[instruction(seed: u64)]
+// #[instruction(seed: u64)]
 pub struct Refund<'info> {
     #[account(mut)]
     pub maker: Signer<'info>,
@@ -36,6 +36,7 @@ pub struct Refund<'info> {
     pub escrow: Account<'info, Escrow>,
 
     #[account(
+        mut,
         associated_token::mint = mint_a,
         associated_token::authority = escrow,
         associated_token::token_program = token_program,

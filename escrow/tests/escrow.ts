@@ -141,6 +141,7 @@ describe("escrow", () => {
 
   });
 
+  console.log("IDL instructions:", program.idl.instructions.map(ix => ix.name));
 
   it("Is initialized and locks token A into escrow vault ATA", async () => {
     await (program as any).methods
@@ -210,6 +211,78 @@ describe("escrow", () => {
 
   });
 
+  it("Maker can refund A when no taker fills the order", async () => {
+    const refundSeed = new anchor.BN(Date.now());
+
+    // Derive new PDA and vault for refund test
+    const [escrowPda2] = PublicKey.findProgramAddressSync(
+      [
+        Buffer.from("escrow"),
+        maker.publicKey.toBuffer(),
+        refundSeed.toArrayLike(Buffer, "le", 8),
+      ],
+      program.programId
+    );
+
+    const vault2 = getAssociatedTokenAddressSync(
+      mintA,
+      escrowPda2,
+      true,
+      TOKEN_PROGRAM_ID
+    );
+
+    const makerBefore = await getAccount(provider.connection, makerAtaA);
+
+    // initialize new escrow
+    await (program as any).methods
+      .initialize(refundSeed, new anchor.BN(depositAmount), new anchor.BN(1_000_000))
+      .accounts({
+        maker: maker.publicKey,
+        makerAtaA,
+        mintA,
+        mintB,
+        escrow: escrowPda2,
+        vault: vault2,
+        tokenProgram: TOKEN_PROGRAM_ID,
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
+        systemProgram: SystemProgram.programId,
+      })
+      .rpc();
+
+    const vaultAfterInit = await getAccount(provider.connection, vault2);
+    if (Number(vaultAfterInit.amount) !== depositAmount) {
+      throw new Error("Refund test: vault2 did not receive correct amount");
+    }
+
+    // refund
+    await program.methods
+      .refund()
+      .accountsPartial({
+        maker: maker.publicKey,
+        mintA,
+        makerAtaA,
+        escrow: escrowPda2,
+        vault: vault2,
+        tokenProgram: TOKEN_PROGRAM_ID,
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
+        systemProgram: SystemProgram.programId,
+      })
+      .rpc();
+
+    // check maker's A balance restored
+    const makerAfter = await getAccount(provider.connection, makerAtaA);
+    if (makerAfter.amount !== makerBefore.amount) {
+      throw new Error(
+        `Refund did not restore maker balance, before=${makerBefore.amount}, after=${makerAfter.amount}`
+      );
+    }
+
+    // check vault2 / escrowPda2 closed
+    const vaultInfo2 = await provider.connection.getAccountInfo(vault2);
+    const escrowInfo2 = await provider.connection.getAccountInfo(escrowPda2);
+    if (vaultInfo2 !== null) throw new Error("Refund test: vault2 not closed");
+    if (escrowInfo2 !== null) throw new Error("Refund test: escrowPda2 not closed");
+  });
 
 
 });
