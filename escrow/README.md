@@ -1,6 +1,9 @@
 # Solana Escrow Program
 
-This project implements a simple **1:1 Token Escrow** smart contract on **Solana Devnet** using **Anchor**.  
+This project implements a trustless, no-third-party, atomic swap system on Solana, inspired by
+Nick Szabo’s concept of smart contracts which removes the need for human trust during exchanges.
+
+It provides a simple **1:1 Token Escrow** smart contract on **Solana Devnet** using **Anchor**.  
 It enables a **Maker** to lock Token A into a vault and define the amount of Token B they want to receive.  
 A **Taker** can then pay the exact Token B amount to automatically receive Token A — all in **one atomic transaction**.
 
@@ -16,6 +19,23 @@ A **Taker** can then pay the exact Token B amount to automatically receive Token
 - Vault and Escrow accounts are automatically closed after settlement.
 
 ---
+
+## 🧩 Why This Solves the Swapping Problems
+
+This escrow design fixes the problems we had when swapping NFTs manually in Discord:
+
+- **No trust needed**:Both sides get their assets in one atomic transaction. No one has to send first.
+
+- **No third party**:The PDA vault replaces moderators or middlemen.
+
+- **Less friction**:Maker creates an order, Taker fills it. No chatting, waiting, or coordination.
+
+- **Automatic “multicast” update**:Both users’ balances update at the same time when the swap happens.
+
+- **Smart contract enforces everything**: The rules are handled by code, not people.
+
+---
+
 
 ## Program Information
 
